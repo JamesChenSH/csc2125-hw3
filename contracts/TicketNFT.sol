@@ -9,13 +9,17 @@ import "hardhat/console.sol";
 
 contract TicketNFT is ERC1155, ITicketNFT {
     // your code goes here (you can do it!)
+
+    // Store owner of contract
     address public owner;
 
-    constructor (string memory _url, address _ownerAddr) ERC1155(_url) {
-        owner = _ownerAddr;
+    constructor (string memory _url, address _owner) ERC1155(_url) {
+        // Init Owner
+        owner = _owner;
     }
 
     function mintFromMarketPlace(address to, uint256 nftId) external {
+        // Mint 1 NFT to the address
         _mint(to, nftId, 1, "");
     }
 
